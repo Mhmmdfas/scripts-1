@@ -115,7 +115,7 @@ clean_build() {
 
 # Miscellaneous env vars
 KERNEL_NAME="GREENFORCE"
-KERNEL_CONFIG="role_defconfig"
+KERNEL_CONFIG="rolex_defconfig"
 
 # Building kernel for ..
 KERNEL_DEVICE="Xiaomi Redmi 4A"
