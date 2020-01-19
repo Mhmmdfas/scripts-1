@@ -20,7 +20,7 @@ tg_channelcast() {
 }
 sed_template() {
 tg_channelcast "<b>${KERNEL_NAME} Build Failed</b>!!" \
-										"<b>Build took</b> <code>$((${DIFF1} / 60)) minute(s) and $((${DIFF1} % 60)) second(s)</code> <b>before failed!</b>"
+		"<b>Build took</b> <code>$((${DIFF1} / 60)) minute(s) and $((${DIFF1} % 60)) second(s)</code> <b>before failed!</b>"
 }
 clean_build() {
 rm -rf out ${ZIP_DIR} ${TOOLCHAIN_DIR}/${TOOLCHAIN_DIRNAME} ${TEMP}/*.log
@@ -65,7 +65,7 @@ CODENAME_DEVICE="rolex"
 TOOLCHAIN_DIR="/root/toolchain"
 ZIP_DIR="$KERNEL_DIR/${CODENAME_DEVICE}"
 git clone -j32 --depth=1 https://github.com/Mhmmdfas/anykernel3 -b ${CODENAME_DEVICE} ${CODENAME_DEVICE}
-echo "clone ${CODENAME_DEVICE}"
+PARSE_BRANCH="$(git rev-parse --abbrev-ref HEAD)"
 main_uts() {
 KERNEL_UTS_VERSION=$(cat ${KERNEL_DIR}/out/include/generated/compile.h | grep UTS_VERSION | cut -d '"' -f2)
 }
