@@ -134,7 +134,7 @@ elif [ "$PARSE_BRANCH" == "EAS" ];
 then
 	KERNEL_TYPE=EAS
 	export $KERNEL_TYPE
-elif [ "$PARSE_BRANCH" == "turn-on" ];
+elif [ "$PARSE_BRANCH" == "aosp/android-3.18" ];
 then
 	KERNEL_TYPE=PURE-CAF
 	export $KERNEL_TYPE

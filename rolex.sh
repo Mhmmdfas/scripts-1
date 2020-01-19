@@ -153,7 +153,7 @@ then
 	export $KERNEL_TYPE
 	STICKER="CAADBQADIwEAAn1Cwy5pf2It72fNXBYE"
 	export $STICKER
-elif [ "$PARSE_BRANCH" == "turn-on" ];
+elif [ "$PARSE_BRANCH" == "aosp/android-3.18" ];
 then
 	KERNEL_TYPE=PURE-CAF
 	export $KERNEL_TYPE
