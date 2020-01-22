@@ -64,6 +64,10 @@ git clone -j32 --depth=1 https://github.com/Mhmmdfas/anykernel3 -b ${CODENAME_DE
 PARSE_BRANCH="$(git rev-parse --abbrev-ref HEAD)"
 main_uts() {
 KERNEL_UTS_VERSION=$(cat ${KERNEL_DIR}/out/include/generated/compile.h | grep UTS_VERSION | cut -d '"' -f2)
+git config --global user.email "fadlyardhians@gmail.com"
+git config --global user.name "fadlyas07"
+patch() {
+	curl -s https://github.com/fadlyas07/android-kernel-xiaomi-msm8917-3/commit/bf78bfab746b5c242f63cb70052b8824e1d18424.patch | git am
 }
 push_log() {
 	curl -F document=@$(echo ${TEMP}/*.log) "https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendDocument" \
@@ -76,6 +80,7 @@ push() {
 	-F "parse_mode=html" \
 	-F caption="Build took $(($DIFF2 / 60)) minute(s) and $(($DIFF2 % 60)) second(s). <b>For ${KERNEL_DEVICE}</b> [ <code>$KERNEL_UTS_VERSION</code> ]"
 }
+patch
 DATE2=$(TZ=Asia/Jakarta date +'%H%M-%d%m%y')
 BUILD_START2=$(date +"%s")
 if [[ "$PARSE_BRANCH" == "HMP" ]];
