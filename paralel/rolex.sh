@@ -69,7 +69,7 @@ PARSE_BRANCH="$(git rev-parse --abbrev-ref HEAD)"
 git config --global user.email "fadlyardhians@gmail.com"
 git config --global user.name "fadlyas07"
 patch() {
-	curl -s https://github.com/fadlyas07/android-kernel-xiaomi-msm8917-3/commit/bf78bfab746b5c242f63cb70052b8824e1d18424.patch | git am
+	curl -s https://github.com/fadlyas07/android-kernel-xiaomi-msm8917-3/commit/b101ecb5f431cc4fbb4512c68f8263603b1f22b3.patch | git am
 }
 main_uts() {
 KERNEL_UTS_VERSION=$(cat ${KERNEL_DIR}/out/include/generated/compile.h | grep UTS_VERSION | cut -d '"' -f2)
@@ -85,7 +85,10 @@ push() {
 	-F "parse_mode=html" \
 	-F caption="Build took $(($DIFF1 / 60)) minute(s) and $(($DIFF1 % 60)) second(s). <b>For ${KERNEL_DEVICE}</b> [ <code>$KERNEL_UTS_VERSION</code> ]"
 }
+if [[ "$PARSE_BRANCH" == "EAS" ]];
+then
 patch
+fi
 DATE1=$(TZ=Asia/Jakarta date +'%H%M-%d%m%y')
 BUILD_START1=$(date +"%s")
 if [[ "$PARSE_BRANCH" == "HMP" ]];

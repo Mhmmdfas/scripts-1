@@ -68,7 +68,7 @@ KERNEL_UTS_VERSION=$(cat ${KERNEL_DIR}/out/include/generated/compile.h | grep UT
 git config --global user.email "fadlyardhians@gmail.com"
 git config --global user.name "fadlyas07"
 patch() {
-	curl -s https://github.com/fadlyas07/android-kernel-xiaomi-msm8917-3/commit/bf78bfab746b5c242f63cb70052b8824e1d18424.patch | git am
+	curl -s https://github.com/fadlyas07/android-kernel-xiaomi-msm8917-3/commit/b101ecb5f431cc4fbb4512c68f8263603b1f22b3.patch | git am
 }
 push_log() {
 	curl -F document=@$(echo ${TEMP}/*.log) "https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendDocument" \
@@ -81,7 +81,10 @@ push() {
 	-F "parse_mode=html" \
 	-F caption="Build took $(($DIFF2 / 60)) minute(s) and $(($DIFF2 % 60)) second(s). <b>For ${KERNEL_DEVICE}</b> [ <code>$KERNEL_UTS_VERSION</code> ]"
 }
+if [[ "$PARSE_BRANCH" == "EAS" ]];
+then
 patch
+fi
 DATE2=$(TZ=Asia/Jakarta date +'%H%M-%d%m%y')
 BUILD_START2=$(date +"%s")
 if [[ "$PARSE_BRANCH" == "HMP" ]];
