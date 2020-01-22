@@ -46,7 +46,7 @@ then
 	export $STICKER
 	TOOLCHAIN_DIRNAME="clang"
 	export $TOOLCHAIN_DIRNAME
-elif [ "$PARSE_BRANCH" == "android-3.18" ];
+elif [ "$PARSE_BRANCH" == "pure-eas" ];
 then
 	KERNEL_TYPE=EAS
 	export $KERNEL_TYPE
