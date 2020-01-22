@@ -85,7 +85,7 @@ push() {
 	-F "parse_mode=html" \
 	-F caption="Build took $(($DIFF1 / 60)) minute(s) and $(($DIFF1 % 60)) second(s). <b>For ${KERNEL_DEVICE}</b> [ <code>$KERNEL_UTS_VERSION</code> ]"
 }
-if [[ "$PARSE_BRANCH" == "EAS" ]];
+if [[ "$PARSE_BRANCH" == "EAS/android-3.18" ]];
 then
 patch
 fi
@@ -98,7 +98,7 @@ then
 	TOOLCHAIN_DIRNAME="clang"
 	export $TOOLCHAIN_DIRNAME
 	make_clangaosp
-elif [[ "$PARSE_BRANCH" == "EAS" ]];
+elif [[ "$PARSE_BRANCH" == "EAS/android-3.18" ]];
 then
 	KERNEL_TYPE=EAS
 	export $KERNEL_TYPE
