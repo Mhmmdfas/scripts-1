@@ -81,10 +81,10 @@ push() {
 	-F "parse_mode=html" \
 	-F caption="Build took $(($DIFF2 / 60)) minute(s) and $(($DIFF2 % 60)) second(s). <b>For ${KERNEL_DEVICE}</b> [ <code>$KERNEL_UTS_VERSION</code> ]"
 }
-if [[ "$PARSE_BRANCH" == "pure-eas" ]];
-then
-patch
-fi
+# if [[ "$PARSE_BRANCH" == "EAS" ]];
+# then
+# patch
+# fi
 DATE2=$(TZ=Asia/Jakarta date +'%H%M-%d%m%y')
 BUILD_START2=$(date +"%s")
 if [[ "$PARSE_BRANCH" == "HMP" ]];
@@ -94,7 +94,7 @@ then
 	TOOLCHAIN_DIRNAME="clang"
 	export $TOOLCHAIN_DIRNAME
 	make_clangaosp
-elif [[ "$PARSE_BRANCH" == "pure-eas" ]];
+elif [[ "$PARSE_BRANCH" == "EAS" ]];
 then
 	KERNEL_TYPE=EAS
 	export $KERNEL_TYPE

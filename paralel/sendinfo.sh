@@ -46,7 +46,7 @@ then
 	export $STICKER
 	TOOLCHAIN_DIRNAME="clang"
 	export $TOOLCHAIN_DIRNAME
-elif [ "$PARSE_BRANCH" == "pure-eas" ];
+elif [ "$PARSE_BRANCH" == "EAS" ];
 then
 	KERNEL_TYPE=EAS
 	export $KERNEL_TYPE
