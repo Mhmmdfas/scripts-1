@@ -119,7 +119,7 @@ PARSE_BRANCH="$(git rev-parse --abbrev-ref HEAD)"
 	export SUBARCH=arm64
 	export KBUILD_BUILD_USER=MhmmdFadlyas
 	export KBUILD_BUILD_HOST=GF-LaB
-	git clone -j32 --depth=1 https://github.com/Mhmmdfas/anykernel3 -b ${CODENAME_DEVICE}
+	git clone -j32 --depth=1 https://github.com/fadlyas07/AnyKernel3-1 anykernel3
 
 # If you are on paralel build,use this for message to sendcast
 UNIFIED="Xiaomi Redmi 4A & 5A"
