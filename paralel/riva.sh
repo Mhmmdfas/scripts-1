@@ -64,6 +64,7 @@ git clone -j32 --depth=1 https://github.com/Mhmmdfas/anykernel3 -b ${CODENAME_DE
 PARSE_BRANCH="$(git rev-parse --abbrev-ref HEAD)"
 main_uts() {
 KERNEL_UTS_VERSION=$(cat ${KERNEL_DIR}/out/include/generated/compile.h | grep UTS_VERSION | cut -d '"' -f2)
+}
 git config --global user.email "fadlyardhians@gmail.com"
 git config --global user.name "fadlyas07"
 patch() {
