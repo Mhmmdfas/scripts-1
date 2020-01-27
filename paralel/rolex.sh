@@ -49,7 +49,7 @@ mkdir $KERNEL_DIR/TEMP
 TEMP="$KERNEL_DIR/TEMP"
 KERNEL_IMG="$KERNEL_DIR/out/arch/arm64/boot/Image.gz-dtb"
 KERNEL_DEVICE="Xiaomi Redmi 4A"
-KERNEL_CONFIG="role_defconfig"
+KERNEL_CONFIG="rolex_defconfig"
 CODENAME_DEVICE="rolex"
 TOOLCHAIN_DIR="/root/toolchain"
 ZIP_DIR="$KERNEL_DIR/${CODENAME_DEVICE}"
