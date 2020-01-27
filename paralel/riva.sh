@@ -20,7 +20,7 @@ tg_channelcast() {
 }
 sed_template() {
 tg_channelcast "<b>${KERNEL_NAME} Build Failed</b>!!" \
-		"<b>Compile took :</b> <code>$((${DIFF1} / 60)) minute(s) and $((${DIFF1} % 60)) second(s)</code> <b>before failed!</b>"
+		"<b>Compile took :</b> <code>$((${DIFF1} / 60)) minute(s) and $((${DIFF1} % 60)) second(s)</code>"
 }
 clean_build() {
 rm -rf out telegram ${ZIP_DIR}/zImage ${ZIP_DIR}/*.zip ${TOOLCHAIN_DIR}/${TOOLCHAIN_DIRNAME} ${TEMP}/*.log
@@ -73,9 +73,8 @@ push() {
 "
 }
 # Shuffle Clang-Toolchain
-compiler[0]="proton"
-compiler[1]="clang"
-compiler[2]="nusantara"
+compiler[0]="clang"
+compiler[1]="nusantara"
 randS=$[$RANDOM % ${#compiler[@]}]
 compilerS=${compiler[$randS]}
 TOOLCHAIN_DIRNAME="${compilerS}"
@@ -91,7 +90,7 @@ then
 	export $KERNEL_TYPE
 elif [[ "$PARSE_BRANCH" == "aosp/android-3.18" ]];
 then
-	KERNEL_TYPE=PURE-CAF
+	KERNEL_TYPE=PuRe-CaF
 	export $KERNEL_TYPE
 elif [[ ! "$KERNEL_TYPE" ]];
 then
