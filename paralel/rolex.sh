@@ -81,7 +81,7 @@ compiler[5]="clang-9.0.7"
 compiler[6]="clang-9.0.8"
 randS=$[$RANDOM % ${#compiler[@]}]
 compilerS=${compiler[$randS]}
-TOOLCHAIN_DIRNAME="${compilerS}"
+TOOLCHAIN_DIRNAME="clang-9.0.8"
 export $TOOLCHAIN_DIRNAME
 
 # export this for disable clang URL ...
