@@ -26,9 +26,8 @@ clean_build() {
 rm -rf out telegram ${ZIP_DIR}/zImage ${ZIP_DIR}/*.zip ${TOOLCHAIN_DIR}/${TOOLCHAIN_DIRNAME} ${TEMP}/*.log
 }
 make_clang() {
-	export LD_LIBRARY_PATH="${TOOLCHAIN_DIR}/${TOOLCHAIN_DIRNAME}/bin/../lib:$PATH"
 	make -j$(nproc --all) O=out ARCH=arm64 ${KERNEL_CONFIG}
-	PATH="${TOOLCHAIN_DIR}/${TOOLCHAIN_DIRNAME}/bin:${PATH}" \
+	PATH="${TOOLCHAIN_DIR}/${TOOLCHAIN_DIRNAME}/bin:${TOOLCHAIN_DIR}/gcc/bin:${TOOLCHAIN_DIR}/gcc32/bin:${PATH}" \
 	make -j$(nproc --all) -> ${TEMP}/rolex.log O=out \
                   				ARCH=arm64 \
                   				CC=clang \
@@ -73,12 +72,20 @@ push() {
 "
 }
 # Shuffle Clang-Toolchain
-compiler[0]="clang"
-compiler[1]="nusantara"
+compiler[0]="clang-9.0.2"
+compiler[1]="clang-9.0.3"
+compiler[2]="clang-9.0.4"
+compiler[3]="clang-9.0.5"
+compiler[4]="clang-9.0.6"
+compiler[5]="clang-9.0.7"
+compiler[6]="clang-9.0.8"
 randS=$[$RANDOM % ${#compiler[@]}]
 compilerS=${compiler[$randS]}
 TOOLCHAIN_DIRNAME="${compilerS}"
 export $TOOLCHAIN_DIRNAME
+
+# export this for disable clang URL ...
+export KBUILD_COMPILER_STRING="$(${TOOLCHAIN_DIR}/${TOOLCHAIN_DIRNAME}/bin/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')"
 
 if [[ "$PARSE_BRANCH" == "HMP" ]];
 then
